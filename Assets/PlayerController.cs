@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float Speed = 5f;
+    public float MouseSensitivity = 1f;
+
     private Vector3 startPosition;
     private Vector3 lastMousePosition;
     private float pixelsToWorld;
@@ -37,7 +39,7 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetMouseButton(0))
         {
             yDelta = (Input.mousePosition - this.lastMousePosition).y;
-            yDelta = yDelta * this.pixelsToWorld;
+            yDelta = yDelta * this.pixelsToWorld * this.MouseSensitivity;
             this.lastMousePosition = Input.mousePosition;
         }
 
